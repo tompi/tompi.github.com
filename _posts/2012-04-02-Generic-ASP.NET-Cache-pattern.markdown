@@ -2,7 +2,7 @@
 layout: post
 title: Generic cache wrapper for the asp.net HttpCache
 ---
-I seem to search for this little nugget every now and again without finding it on the net, so here it is. I really can't take credit for it, I think it was the <a href="http://github.com/bentster" alt="bentster">bentster</a> who wrote it first time I saw it, but not really sure...
+I seem to search for this little nugget every now and again without finding it on the net, so here it is. I really can't take credit for it, I think it was the <a href="http://github.com/bentster">bentster</a> who wrote it first time I saw it, but not really sure...
 
 What to cache
 -------------

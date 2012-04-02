@@ -5,7 +5,7 @@ layout: default
     <header>
         <a href="/" class="backLink">&laquo; Back to article overview.</a>
         <h1>{{ page.title }}</h1>
-        <time datetime="{{ page.date | date: '%Y-%m-%d' }}" pubdate>
+        <time datetime="{{ page.date | date: '%Y-%m-%d' }}">
             {{ page.date | date: '%d. %B %Y' }}
         </time>
     </header>
@@ -29,13 +29,5 @@ layout: default
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-<div id="disqus_thread"></div>
-<script>
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://nikic.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-</script>
     </footer>
 </section>
