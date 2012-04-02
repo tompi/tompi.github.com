@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Generic cache wrapper for the asp.net HttpCache</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/bootstrap-responsive.min.css" />
+        <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-30522283-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+    <body>
+        <header>
+            Blog by <strong>Tompi</strong>.
+            Find me on <a href="https://github.com/tompi">GitHub</a>.
+            Learn more <a href="/aboutMe.html">about me</a>.
+        </header>
+        <section>
+            <section class="post">
+    <header>
+        <a href="/" class="backLink">&laquo; Back to article overview.</a>
+        <h1>Generic cache wrapper for the asp.net HttpCache</h1>
+        <time datetime="2012-04-02" pubdate>
+            02. April 2012
+        </time>
+    </header>
+    <section>
+        <p>I seem to search for this little nugget every now and again without finding it on the net, so here it is&#8230;</p>
+
+<h2 id='what_to_cache'>What to cache</h2>
+
+<p>Typical usage is data for populating dropdown lists with options which doesn&#8217;t change too often, like once a day. This is probably the most frequently used data from a database, so making the app hit the db only once per day(per list) can really make a difference if you have some load.</p>
+
+<h2 id='how_to_cache'>How to cache</h2>
+
+<p>The ASP.NET HttpCache is really simple and can be used for all types of .net applications(I have used it mainly in web-apps, but also in a wcf-project). The reason for having the caching logic isolated in a class is it&#8217;s really easy to get the locking wrong.</p>
+
+<h2 id='le_code'>Le code</h2>
+
+<p>There really isn&#8217;t much to it, except for the double checking.</p>
+
+<pre><code>Somecode(&#39;hmm&#39;);</code></pre>
+
+<p>Your only concern using it is which lock-object to give it. I usually make a &#8220;retriever&#8221; class for each list I need, and give the cache the typeof(MyListRetriever) to use for locking.</p>
+
+<p>Here&#8217;s a simple example:</p>
+
+<pre><code>Somemorecode(&#39;haha&#39;, 1);</code></pre>
+    </section>
+    <footer>
+        <section class="followupActions">
+            If you liked this article, you may want to <a href="/">browse my other articles</a>.
+        </section>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+		    var disqus_shortname = 'tompisblog';
+			  (function() {
+			     var dsq = document.createElement('script'); 
+					 dsq.type = 'text/javascript'; 
+					 dsq.async = true;
+					 dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+					 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+<div id="disqus_thread"></div>
+<script>
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://nikic.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+</script>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </footer>
+</section>
+
+        </section>
+    </body>
+</html>
