@@ -6,8 +6,8 @@
     <atom:link href="http://tompi.github.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>Tompi's blog about computers and the web</description>
     <language>en-us</language>
-    <pubDate>Mon, 02 Apr 2012 11:28:21 +0200</pubDate>
-    <lastBuildDate>Mon, 02 Apr 2012 11:28:21 +0200</lastBuildDate>
+    <pubDate>Mon, 02 Apr 2012 11:56:44 +0200</pubDate>
+    <lastBuildDate>Mon, 02 Apr 2012 11:56:44 +0200</lastBuildDate>
 
     
     <item>
@@ -16,7 +16,7 @@
       <pubDate>Mon, 02 Apr 2012 00:00:00 +0200</pubDate>
       <author>thomas.haukland@gmail.com (Tompi)</author>
       <guid>http://tompi.github.com/2012/04/02/Generic-ASP.NET-Cache-pattern</guid>
-      <description>&lt;p&gt;I seem to search for this little nugget every now and again without finding it on the net, so here it is&amp;#8230;&lt;/p&gt;
+      <description>&lt;p&gt;I seem to search for this little nugget every now and again without finding it on the net, so here it is. I really can&amp;#8217;t take credit for it, I think it was the &lt;a alt='bentster' href='http://github.com/bentster'&gt;bentster&lt;/a&gt; who wrote it first time I saw it, but not really sure&amp;#8230;&lt;/p&gt;
 
 &lt;h2 id='what_to_cache'&gt;What to cache&lt;/h2&gt;
 
@@ -30,13 +30,30 @@
 
 &lt;p&gt;There really isn&amp;#8217;t much to it, except for the double checking.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;Somecode(&amp;#39;hmm&amp;#39;);&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;public class Cache&amp;lt;T&amp;gt; where T : class
+{
+	public T Get(object lockObject, string key, Func&amp;lt;T&amp;gt; getFunction, int hoursToCache)
+	{
+		var result = HttpRunTime.Cache.Get(key);
+		if (result == null)
+		{
+			lock (lockObject)
+			{
+				result = HttpRunTime.Cache.Get(key);
+				if (result == null)
+				{
+					result = getFunction();
+					HttpRunTime.Cache.Insert(key, result, null, DateTime.UtcNow.AddHours(hoursToCache), Cache.NoSlidingExpiration);
+				}
+			}
+		}
+		return (T) result;
+	}
+}&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Your only concern using it is which lock-object to give it. I usually make a &amp;#8220;retriever&amp;#8221; class for each list I need, and give the cache the typeof(MyListRetriever) to use for locking.&lt;/p&gt;
 
-&lt;p&gt;Here&amp;#8217;s a simple example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Somemorecode(&amp;#39;haha&amp;#39;, 1);&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;p&gt;TODO: usage example and lambda with param&lt;/p&gt;</description>
     </item>
     
 

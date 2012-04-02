@@ -41,13 +41,6 @@
         </div>
       </div>
     </div>
-
-		<div class="hero-unit">
-		  <h1>Tompi's blog</h1>
-  			<p>Mostly just programming stuff I know I will need to remember, 
-					but something just might turn out useful for you?</p>
-		</div>
-		
         <section>
             <section class="post">
     <header>
@@ -58,7 +51,7 @@
         </time>
     </header>
     <section>
-        <p>I seem to search for this little nugget every now and again without finding it on the net, so here it is&#8230;</p>
+        <p>I seem to search for this little nugget every now and again without finding it on the net, so here it is. I really can&#8217;t take credit for it, I think it was the <a alt='bentster' href='http://github.com/bentster'>bentster</a> who wrote it first time I saw it, but not really sure&#8230;</p>
 
 <h2 id='what_to_cache'>What to cache</h2>
 
@@ -72,13 +65,30 @@
 
 <p>There really isn&#8217;t much to it, except for the double checking.</p>
 
-<pre><code>Somecode(&#39;hmm&#39;);</code></pre>
+<pre><code>public class Cache&lt;T&gt; where T : class
+{
+	public T Get(object lockObject, string key, Func&lt;T&gt; getFunction, int hoursToCache)
+	{
+		var result = HttpRunTime.Cache.Get(key);
+		if (result == null)
+		{
+			lock (lockObject)
+			{
+				result = HttpRunTime.Cache.Get(key);
+				if (result == null)
+				{
+					result = getFunction();
+					HttpRunTime.Cache.Insert(key, result, null, DateTime.UtcNow.AddHours(hoursToCache), Cache.NoSlidingExpiration);
+				}
+			}
+		}
+		return (T) result;
+	}
+}</code></pre>
 
 <p>Your only concern using it is which lock-object to give it. I usually make a &#8220;retriever&#8221; class for each list I need, and give the cache the typeof(MyListRetriever) to use for locking.</p>
 
-<p>Here&#8217;s a simple example:</p>
-
-<pre><code>Somemorecode(&#39;haha&#39;, 1);</code></pre>
+<p>TODO: usage example and lambda with param</p>
     </section>
     <footer>
         <section class="followupActions">
