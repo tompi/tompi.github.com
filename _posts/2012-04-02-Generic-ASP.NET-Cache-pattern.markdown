@@ -44,6 +44,3 @@ Your only concern using it is which lock-object to give it. I usually make a "re
 
 TODO: usage example and lambda with param
 
-	Somemorecode('haha', 1);
-
-
