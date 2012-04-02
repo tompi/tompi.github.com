@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <title>Generic cache wrapper for the asp.net HttpCache</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/tompi.css" />
         <link rel="stylesheet" href="/css/bootstrap-responsive.min.css" />
         <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
         <script type="text/javascript">
@@ -18,12 +19,35 @@
             })();
         </script>
     </head>
-    <body>
-        <header>
-            Blog by <strong>Tompi</strong>.
-            Find me on <a href="https://github.com/tompi">GitHub</a>.
-            Learn more <a href="/aboutMe.html">about me</a>.
-        </header>
+    <body  data-spy="scroll" data-target=".subnav" data-offset="50">
+    <div class="container">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Tompi's blog</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="./aboutMe.html">About me</a>
+              </li>
+              <li class="">
+                <a href="http://github.com/tompi">Me on github</a>
+              </li>
+              <li class="">
+                <a href="http://www.haukland.priv.no">My homepage</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+		<div class="hero-unit">
+		  <h1>Tompi's blog</h1>
+  			<p>Mostly just programming stuff I know I will need to remember, 
+					but something just might turn out useful for you?</p>
+		</div>
+		
         <section>
             <section class="post">
     <header>
@@ -86,5 +110,9 @@
 </section>
 
         </section>
+		</div>
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
     </body>
 </html>

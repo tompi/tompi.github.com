@@ -19,11 +19,30 @@ Le code
 
 There really isn't much to it, except for the double checking. 
 
-	Somecode('hmm');
+	public class Cache<T> where T : class
+	{
+		public T Get(object lockObject, string key, Func<T> getFunction, int hoursToCache)
+		{
+			var result = HttpRunTime.Cache.Get(key);
+			if (result == null)
+			{
+				lock (lockObject)
+				{
+					result = HttpRunTime.Cache.Get(key);
+					if (result == null)
+					{
+						result = getFunction();
+						HttpRunTime.Cache.Insert(key, result, null, DateTime.UtcNow.AddHours(hoursToCache), Cache.NoSlidingExpiration);
+					}
+				}
+			}
+			return (T) result;
+		}
+	}
 
 Your only concern using it is which lock-object to give it. I usually make a "retriever" class for each list I need, and give the cache the typeof(MyListRetriever) to use for locking.
 
-Here's a simple example:
+TODO: usage example and lambda with param
 
 	Somemorecode('haha', 1);
 
