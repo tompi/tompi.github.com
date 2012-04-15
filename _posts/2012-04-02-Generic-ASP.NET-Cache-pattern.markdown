@@ -19,7 +19,6 @@ Le code
 
 There really isn't much to it, except for the double checking. 
 
-```C#
 	public class Cache<T> where T : class
 	{
 		public T Get(object lockObject, string key, Func<T> getFunction, int hoursToCache)
@@ -40,7 +39,6 @@ There really isn't much to it, except for the double checking.
 			return (T) result;
 		}
 	}
-```
 
 Your only concern using it is which lock-object to give it. I usually make a "retriever" class for each list I need, and give the cache the typeof(MyListRetriever) to use for locking.
 

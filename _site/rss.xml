@@ -6,8 +6,8 @@
     <atom:link href="http://tompi.github.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>Tompi's blog about computers and the web</description>
     <language>en-us</language>
-    <pubDate>Mon, 02 Apr 2012 11:56:44 +0200</pubDate>
-    <lastBuildDate>Mon, 02 Apr 2012 11:56:44 +0200</lastBuildDate>
+    <pubDate>Sun, 15 Apr 2012 14:15:24 +0200</pubDate>
+    <lastBuildDate>Sun, 15 Apr 2012 14:15:24 +0200</lastBuildDate>
 
     
     <item>
@@ -16,7 +16,7 @@
       <pubDate>Mon, 02 Apr 2012 00:00:00 +0200</pubDate>
       <author>thomas.haukland@gmail.com (Tompi)</author>
       <guid>http://tompi.github.com/2012/04/02/Generic-ASP.NET-Cache-pattern</guid>
-      <description>&lt;p&gt;I seem to search for this little nugget every now and again without finding it on the net, so here it is. I really can&amp;#8217;t take credit for it, I think it was the &lt;a alt='bentster' href='http://github.com/bentster'&gt;bentster&lt;/a&gt; who wrote it first time I saw it, but not really sure&amp;#8230;&lt;/p&gt;
+      <description>&lt;p&gt;I seem to search for this little nugget every now and again without finding it on the net, so here it is. I really can&amp;#8217;t take credit for it, I think it was the &lt;a href='http://github.com/bentster'&gt;bentster&lt;/a&gt; who wrote it first time I saw it, but not really sure&amp;#8230;&lt;/p&gt;
 
 &lt;h2 id='what_to_cache'&gt;What to cache&lt;/h2&gt;
 
