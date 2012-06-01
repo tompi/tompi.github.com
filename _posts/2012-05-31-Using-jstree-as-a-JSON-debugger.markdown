@@ -19,4 +19,5 @@ This code will display an alert with the text "name: Thomas"
 jstree
 ------
 
-jstree (http://www.jstree.com) is a nice		
+jstree (http://www.jstree.com) is a nice javascript tree plugin.
+
